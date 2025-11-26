@@ -11,7 +11,6 @@
     <div class="container">
         <h1>SpendWise</h1>
         <p class="subtitle">Smart Expense Tracking & Budget Management</p>
-
         <nav class="nav">
             <a href="#intro">Introduction</a>
             <a href="#architecture">Design & Architecture</a>
@@ -24,7 +23,6 @@
 </header>
 
 <main class="container">
-
     <!-- 1. Introduction -->
     <section id="intro">
         <h2>1. Introduction</h2>
@@ -60,6 +58,88 @@
             <li><strong>RecyclerView</strong> for lists like expenses and budgets.</li>
         </ul>
 
+        <!-- MVVM Architecture Section -->
+        <h3>2.1 MVVM Architecture</h3>
+        <p>
+            The Model-View-ViewModel (MVVM) architecture pattern is the foundation of SpendWise's 
+            codebase. This architectural approach provides clear separation of concerns and makes 
+            our application more maintainable, testable, and scalable.
+        </p>
+        <h4>Components of MVVM:</h4>
+        <ul>
+            <li><strong>Model:</strong> Represents the data and business logic. In SpendWise, models 
+                include entities like Expense, Budget, SavingsCircle, and User. These classes encapsulate 
+                data structures and contain validation logic.</li>
+            <li><strong>View:</strong> The UI layer (Activities and Fragments) that displays data to 
+                users and handles user interactions. Views observe ViewModels and update automatically 
+                when data changes.</li>
+            <li><strong>ViewModel:</strong> Acts as a bridge between the View and Model. ViewModels hold 
+                UI-related data that survives configuration changes (like screen rotations) and expose 
+                LiveData objects that Views can observe. They contain no direct references to Views, 
+                making them easily testable.</li>
+        </ul>
+        <h4>Benefits of MVVM in SpendWise:</h4>
+        <ul>
+            <li><strong>Separation of Concerns:</strong> Business logic is separated from UI code, 
+                making the codebase easier to understand and maintain.</li>
+            <li><strong>Testability:</strong> ViewModels can be unit tested independently without 
+                Android framework dependencies, allowing for faster and more reliable tests.</li>
+            <li><strong>Lifecycle Awareness:</strong> ViewModels survive configuration changes, 
+                preventing data loss when users rotate their devices.</li>
+            <li><strong>Reactive Updates:</strong> LiveData provides observable data holders that 
+                automatically update the UI when data changes, reducing boilerplate code.</li>
+            <li><strong>Data Consistency:</strong> Multiple Views can observe the same ViewModel, 
+                ensuring consistent data across different screens.</li>
+        </ul>
+        <p>
+            Throughout the SpendWise application, each major feature (Expenses, Budgets, Savings Circles, 
+            Chatbot) follows this pattern, with dedicated ViewModels managing the state and business 
+            logic for their respective features.
+        </p>
+
+        <!-- Checkstyle Section -->
+        <h3>2.2 Code Quality with Checkstyle</h3>
+        <p>
+            To maintain high code quality and consistency across the entire codebase, SpendWise 
+            integrates Checkstyle, an automated code style checking tool. Checkstyle enforces 
+            coding standards and best practices automatically during the build process.
+        </p>
+        <h4>Checkstyle Configuration:</h4>
+        <p>
+            Our Checkstyle configuration enforces several important rules:
+        </p>
+        <ul>
+            <li><strong>Maximum Line Length:</strong> 100 characters per line to ensure code readability 
+                and compatibility with various screen sizes and code review tools.</li>
+            <li><strong>Maximum Method Length:</strong> 150 lines per method to prevent overly complex 
+                methods and encourage proper code decomposition.</li>
+            <li><strong>Maximum Parameters:</strong> 7 parameters per method to maintain clean method 
+                signatures and encourage the use of parameter objects when needed.</li>
+            <li><strong>Javadoc Requirements:</strong> All public classes, methods, and fields must have 
+                comprehensive Javadoc comments explaining their purpose, parameters, return values, and 
+                exceptions.</li>
+            <li><strong>Naming Conventions:</strong> Enforces Java naming conventions for classes, methods, 
+                variables, and constants.</li>
+            <li><strong>Code Structure:</strong> Validates proper indentation, brace placement, and 
+                whitespace usage.</li>
+        </ul>
+        <h4>Benefits:</h4>
+        <ul>
+            <li><strong>Consistency:</strong> Ensures all team members follow the same coding standards, 
+                making the codebase easier to read and maintain.</li>
+            <li><strong>Early Detection:</strong> Catches style violations during development, preventing 
+                code quality issues from accumulating.</li>
+            <li><strong>Automated Enforcement:</strong> Removes the need for manual code review of style 
+                issues, allowing reviewers to focus on logic and architecture.</li>
+            <li><strong>Documentation:</strong> Javadoc requirements ensure that code is well-documented, 
+                making it easier for new team members to understand the codebase.</li>
+        </ul>
+        <p>
+            Checkstyle runs automatically as part of our Gradle build process, ensuring that no code 
+            with style violations can be merged into the main branch. This automated enforcement has 
+            been crucial in maintaining code quality throughout the project's development lifecycle.
+        </p>
+
         <h3>UML Design Class Diagram</h3>
         <p>
             The following diagram summarizes the core classes and their relationships:
@@ -76,7 +156,6 @@
             Below is a guided visual tour of the main screens in the SpendWise application.
             All screenshots are taken from our working Android app.
         </p>
-
         <div class="grid">
             <figure class="card">
                 <img src="images/Dashboard.JPG" alt="Dashboard Screen">
@@ -85,7 +164,6 @@
                     Overview of total expenses, remaining budget, and quick summaries.
                 </figcaption>
             </figure>
-
             <figure class="card">
                 <img src="images/Expense.JPG" alt="Expense Log Screen">
                 <figcaption>
@@ -93,7 +171,6 @@
                     Users can add, edit, and categorize their daily expenses.
                 </figcaption>
             </figure>
-
             <figure class="card">
                 <img src="images/Budget.JPG" alt="Budgets Screen">
                 <figcaption>
@@ -101,7 +178,6 @@
                     Create and track category-based budgets such as Food, Travel, and Bills.
                 </figcaption>
             </figure>
-
             <figure class="card">
                 <img src="images/Save_circle.JPG" alt="Savings Circles Screen">
                 <figcaption>
@@ -109,7 +185,6 @@
                     Visual rings showing progress toward different savings goals.
                 </figcaption>
             </figure>
-
             <figure class="card">
                 <img src="images/ChatBot.JPG" alt="AI Chatbot Screen">
                 <figcaption>
@@ -117,7 +192,6 @@
                     A chatbot that answers questions and provides financial tips.
                 </figcaption>
             </figure>
-
             <figure class="card">
                 <img src="images/Dark_Dashboard.JPG" alt="Dark Mode Screen">
                 <figcaption>
@@ -126,6 +200,94 @@
                 </figcaption>
             </figure>
         </div>
+
+        <!-- Dark Mode Section -->
+        <h3>3.1 Dark Mode</h3>
+        <p>
+            SpendWise features comprehensive dark mode support, allowing users to switch between 
+            light and dark themes seamlessly throughout the entire application. This feature 
+            enhances user experience by providing better readability in low-light conditions and 
+            reducing eye strain during extended use.
+        </p>
+        <h4>Implementation Details:</h4>
+        <ul>
+            <li><strong>Theme Toggle:</strong> A single toggle switch in the settings allows users 
+                to instantly switch between light and dark modes. The preference is saved using 
+                SharedPreferences, ensuring the user's choice persists across app sessions.</li>
+            <li><strong>System-Wide Application:</strong> When dark mode is enabled, all screens, 
+                including Dashboard, Expense Log, Budgets, Savings Circles, Chatbot, and Profile, 
+                automatically adapt to the dark theme.</li>
+            <li><strong>Consistent Color Scheme:</strong> The dark mode uses carefully selected 
+                color palettes that maintain contrast ratios for accessibility while providing a 
+                comfortable viewing experience. All UI components, including buttons, cards, text, 
+                and charts, are styled appropriately for both themes.</li>
+            <li><strong>Real-Time Updates:</strong> Theme changes are applied immediately without 
+                requiring an app restart. The ViewModel architecture ensures that all active 
+                fragments and activities update their UI components reactively when the theme 
+                preference changes.</li>
+            <li><strong>Persistent Storage:</strong> The user's theme preference is stored locally 
+                using SharedPreferences and synchronized with Firebase for multi-device consistency.</li>
+        </ul>
+        <h4>User Benefits:</h4>
+        <ul>
+            <li>Reduced eye strain in low-light environments</li>
+            <li>Improved battery life on devices with OLED displays</li>
+            <li>Personal preference accommodation for user comfort</li>
+            <li>Consistent visual experience across all app features</li>
+        </ul>
+        <p>
+            The dark mode implementation follows Material Design guidelines, ensuring that the 
+            application maintains a professional and modern appearance in both light and dark 
+            themes while providing optimal usability.
+        </p>
+
+        <!-- Profile and Friends Section -->
+        <h3>3.2 Profile & Social Features</h3>
+        <p>
+            SpendWise includes comprehensive profile management and social features that allow 
+            users to personalize their experience and connect with friends for collaborative 
+            financial management.
+        </p>
+        <h4>Profile Management:</h4>
+        <ul>
+            <li><strong>Profile Access:</strong> Users can access their profile from the main 
+                navigation menu or dashboard. The profile screen displays user information, 
+                account settings, and preferences.</li>
+            <li><strong>Profile Picture:</strong> Users can add, update, or change their profile 
+                picture by selecting an image from their device's gallery or taking a new photo 
+                with the camera. Profile pictures are stored securely in Firebase Storage and 
+                displayed throughout the app, including in Savings Circles and friend lists.</li>
+            <li><strong>User Information:</strong> The profile screen allows users to view and 
+                edit their personal information, including name, email address, and other 
+                account details. All changes are synchronized with Firebase Authentication and 
+                Firestore database.</li>
+            <li><strong>Account Settings:</strong> Users can manage various account settings from 
+                the profile screen, including notification preferences, privacy settings, and 
+                theme preferences.</li>
+        </ul>
+        <h4>Friends Feature:</h4>
+        <ul>
+            <li><strong>Friend List:</strong> Users can view their list of friends from the profile 
+                screen. The friend list displays friend names, profile pictures, and their current 
+                status in shared Savings Circles.</li>
+            <li><strong>Add Friends:</strong> Users can search for and add friends by email address 
+                or username. Friend requests are sent and managed through Firebase, with notifications 
+                alerting users when they receive new friend requests.</li>
+            <li><strong>Friend Activity:</strong> In shared Savings Circles, users can see their 
+                friends' contributions and progress, fostering a sense of community and accountability 
+                in achieving financial goals.</li>
+            <li><strong>Social Integration:</strong> The friends feature integrates seamlessly with 
+                Savings Circles, allowing users to create group savings goals with their friends and 
+                track collective progress together.</li>
+        </ul>
+        <h4>Technical Implementation:</h4>
+        <p>
+            Profile and friend data are managed through Firebase Firestore, with real-time 
+            synchronization ensuring that profile updates and friend relationships are consistent 
+            across all devices. The MVVM architecture ensures that profile and friend data are 
+            managed through dedicated ViewModels, maintaining separation of concerns and enabling 
+            efficient testing.
+        </p>
     </section>
 
     <!-- 4. Functionality / Demo Video -->
@@ -136,7 +298,6 @@
             expense logging, budget creation, savings tracking, theme toggling, and 
             interaction with the AI chatbot.
         </p>
-
         <!-- Replace VIDEO_ID with your actual YouTube video id -->
         <div class="video-wrapper">
             <iframe
@@ -155,6 +316,74 @@
                  alt="SpendWise Demo Video Thumbnail"
                  style="width:100%; border-radius:12px;">
         </a>
+
+        <!-- Unit Tests Section -->
+        <h3>4.1 Unit Testing</h3>
+        <p>
+            Comprehensive unit testing is a critical component of SpendWise's development process, 
+            ensuring code reliability, preventing regressions, and maintaining high code quality 
+            throughout the application lifecycle.
+        </p>
+        <h4>Testing Strategy:</h4>
+        <ul>
+            <li><strong>Business Logic Testing:</strong> All ViewModels and business logic classes 
+                are thoroughly unit tested. These tests verify that calculations, data transformations, 
+                and business rules work correctly independently of the Android framework.</li>
+            <li><strong>Repository Testing:</strong> Data repository classes are tested to ensure 
+                proper data retrieval, storage, and synchronization with Firebase Firestore. Mock 
+                objects are used to simulate Firebase responses, allowing tests to run quickly and 
+                reliably.</li>
+            <li><strong>Model Validation:</strong> Model classes (Expense, Budget, SavingsCircle, etc.) 
+                are tested to ensure data validation, constraint checking, and proper data structure 
+                initialization.</li>
+            <li><strong>Utility Function Testing:</strong> Helper classes and utility functions, 
+                such as date formatters, currency converters, and calculation helpers, are covered 
+                by unit tests to ensure accuracy and reliability.</li>
+        </ul>
+        <h4>Testing Tools and Frameworks:</h4>
+        <ul>
+            <li><strong>JUnit:</strong> The primary testing framework used for writing and executing 
+                unit tests. JUnit provides annotations and assertions that make test writing 
+                straightforward and readable.</li>
+            <li><strong>Mockito:</strong> Used for creating mock objects and stubbing method calls. 
+                Mockito allows us to isolate units under test by replacing dependencies with mock 
+                implementations, ensuring tests focus on specific functionality.</li>
+            <li><strong>Robolectric:</strong> Enables running Android-dependent tests on the JVM 
+                without requiring an emulator or physical device, significantly speeding up test 
+                execution times.</li>
+            <li><strong>AndroidX Test:</strong> Provides additional testing utilities for Android 
+                components, including LiveData testing helpers and lifecycle-aware testing tools.</li>
+        </ul>
+        <h4>Test Coverage:</h4>
+        <p>
+            Our unit tests cover critical business logic including:
+        </p>
+        <ul>
+            <li>Expense calculation and aggregation</li>
+            <li>Budget tracking and threshold warnings</li>
+            <li>Savings Circle progress calculations</li>
+            <li>Data validation and error handling</li>
+            <li>ViewModel state management</li>
+            <li>Repository data operations</li>
+        </ul>
+        <h4>Benefits:</h4>
+        <ul>
+            <li><strong>Early Bug Detection:</strong> Unit tests catch bugs during development, 
+                before they reach production, reducing debugging time and improving code quality.</li>
+            <li><strong>Refactoring Confidence:</strong> Comprehensive test coverage provides 
+                confidence when refactoring code, ensuring that changes don't break existing 
+                functionality.</li>
+            <li><strong>Documentation:</strong> Well-written unit tests serve as executable 
+                documentation, showing how classes and methods are intended to be used.</li>
+            <li><strong>Regression Prevention:</strong> Tests prevent previously fixed bugs from 
+                reoccurring when new code is added or modified.</li>
+        </ul>
+        <p>
+            Unit tests are integrated into our continuous integration pipeline, running automatically 
+            on every commit and pull request. This ensures that all code changes are validated 
+            before being merged into the main branch, maintaining the stability and reliability 
+            of the SpendWise application.
+        </p>
     </section>
 
     <!-- 5. Conclusions & Reflections -->
@@ -194,13 +423,18 @@
             <li><strong>Joseph Michael Sherrier</strong> – Equal Contributions</li>
         </ul>
     </section>
-
 </main>
 
 <footer class="site-footer">
     <div class="container">
         <p>SpendWise &copy; 2025 • Built for the course project</p>
         <p><a href="#intro">Back to top ↑</a></p>
+    </div>
+</footer>
+</body>
+</html>
+
+
     </div>
 </footer>
 </body>
