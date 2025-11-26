@@ -147,8 +147,8 @@ ul {
 }
 
 .profile-image {
-    width: 100px;
-    height: auto;
+    width: 70px;
+    height: 100px;
     border-radius: 10px; /* optional */
 }
 
