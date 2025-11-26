@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SpendWise – Project Website</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site-header">
+    <div class="container">
+        <h1>SpendWise</h1>
+        <p class="subtitle">Smart Expense Tracking & Budget Management</p>
+
+        <nav class="nav">
+            <a href="#intro">Introduction</a>
+            <a href="#architecture">Design & Architecture</a>
+            <a href="#ui">User Interface</a>
+            <a href="#functionality">Functionality</a>
+            <a href="#reflections">Conclusions & Learning</a>
+            <a href="#contributors">Contributors</a>
+        </nav>
+    </div>
+</header>
+
+<main class="container">
+
+    <!-- 1. Introduction -->
+    <section id="intro">
+        <h2>1. Introduction</h2>
+        <p>
+            SpendWise is a mobile application designed to help users track expenses, set budgets,
+            monitor savings goals, and gain insight into their financial habits.
+        </p>
+        <p>
+            Our goal is to make personal finance easier for both individuals and groups by
+            providing clear visual dashboards, reminders, and intelligent insights.
+        </p>
+        <ul>
+            <li>Log daily expenses quickly.</li>
+            <li>Create and track monthly budgets.</li>
+            <li>Visualize progress using Savings Circles.</li>
+            <li>Chat with an AI-based financial assistant.</li>
+            <li>Toggle between Light and Dark modes for better readability.</li>
+        </ul>
+    </section>
+
+    <!-- 2. Design & Architecture -->
+    <section id="architecture">
+        <h2>2. Design & Architecture</h2>
+        <p>
+            SpendWise follows an <strong>MVVM (Model–View–ViewModel)</strong> architecture to keep the
+            UI and business logic clearly separated. The app uses:
+        </p>
+        <ul>
+            <li><strong>ViewModel + LiveData</strong> for reactive UI updates.</li>
+            <li><strong>Repository pattern</strong> to abstract data sources.</li>
+            <li><strong>Firebase Firestore / Room</strong> for persistent storage.</li>
+            <li><strong>SharedPreferences</strong> to cache theme and user preferences locally.</li>
+            <li><strong>RecyclerView</strong> for lists like expenses and budgets.</li>
+        </ul>
+
+        <h3>UML Design Class Diagram</h3>
+        <p>
+            The following diagram summarizes the core classes and their relationships:
+        </p>
+        <div class="image-wrapper">
+            <img src="images/uml_diagram.png" alt="SpendWise UML Class Diagram">
+        </div>
+    </section>
+
+    <!-- 3. User Interface (UI) -->
+    <section id="ui">
+        <h2>3. User Interface (UI)</h2>
+        <p>
+            Below is a guided visual tour of the main screens in the SpendWise application.
+            All screenshots are taken from our working Android app.
+        </p>
+
+        <div class="grid">
+            <figure class="card">
+                <img src="images/dashboard.png" alt="Dashboard Screen">
+                <figcaption>
+                    <strong>Dashboard</strong><br>
+                    Overview of total expenses, remaining budget, and quick summaries.
+                </figcaption>
+            </figure>
+
+            <figure class="card">
+                <img src="images/expense_log.png" alt="Expense Log Screen">
+                <figcaption>
+                    <strong>Expense Log</strong><br>
+                    Users can add, edit, and categorize their daily expenses.
+                </figcaption>
+            </figure>
+
+            <figure class="card">
+                <img src="images/budgets.png" alt="Budgets Screen">
+                <figcaption>
+                    <strong>Budgets</strong><br>
+                    Create and track category-based budgets such as Food, Travel, and Bills.
+                </figcaption>
+            </figure>
+
+            <figure class="card">
+                <img src="images/savings.png" alt="Savings Circles Screen">
+                <figcaption>
+                    <strong>Savings Circles</strong><br>
+                    Visual rings showing progress toward different savings goals.
+                </figcaption>
+            </figure>
+
+            <figure class="card">
+                <img src="images/chatbot.png" alt="AI Chatbot Screen">
+                <figcaption>
+                    <strong>AI Chatbot</strong><br>
+                    A chatbot that answers questions and provides financial tips.
+                </figcaption>
+            </figure>
+
+            <figure class="card">
+                <img src="images/dark_mode.png" alt="Dark Mode Screen">
+                <figcaption>
+                    <strong>Dark Mode</strong><br>
+                    The entire app supports Light and Dark themes using a single toggle.
+                </figcaption>
+            </figure>
+        </div>
+    </section>
+
+    <!-- 4. Functionality / Demo Video -->
+    <section id="functionality">
+        <h2>4. Functionality – Demo Video</h2>
+        <p>
+            The following video demonstrates the key workflows in SpendWise, including
+            expense logging, budget creation, savings tracking, theme toggling, and 
+            interaction with the AI chatbot.
+        </p>
+
+        <!-- Replace VIDEO_ID with your actual YouTube video id -->
+        <div class="video-wrapper">
+            <iframe
+                src="https://www.youtube.com/embed/VIDEO_ID"
+                title="SpendWise App Demo"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+            </iframe>
+        </div>
+    </section>
+
+    <!-- 5. Conclusions & Reflections -->
+    <section id="reflections">
+        <h2>5. Conclusions, Reflections, and Learning</h2>
+        <p>
+            Building SpendWise gave our team hands-on experience with Android development,
+            Git-based collaboration, and clean architecture patterns.
+        </p>
+        <p>
+            Some of the key challenges we faced included:
+        </p>
+        <ul>
+            <li>Managing state across multiple fragments while keeping the UI responsive.</li>
+            <li>Ensuring theme changes (Light/Dark Mode) propagate instantly across screens.</li>
+            <li>Designing a database schema that works well with both budgets and expenses.</li>
+        </ul>
+        <p>
+            Through this project, we learned:
+        </p>
+        <ul>
+            <li>How to apply MVVM with ViewModel and LiveData in a real app.</li>
+            <li>How to integrate Firebase/Room and SharedPreferences effectively.</li>
+            <li>How to design consistent UI/UX with reusable components and themes.</li>
+        </ul>
+        <p>
+            In the future, we plan to extend SpendWise with advanced analytics,
+            export to CSV, and optional bank account integration.
+        </p>
+    </section>
+
+    <!-- 6. Contributors -->
+    <section id="contributors">
+        <h2>6. Contributors</h2>
+        <p>The SpendWise project and this website were developed by:</p>
+        <ul>
+            <li><strong>Your Name</strong> – Dark Mode, Dashboard UI, Website deployment</li>
+            <li><strong>Teammate A</strong> – Expense Log & Firestore integration</li>
+            <li><strong>Teammate B</strong> – Budgets & Savings Circles</li>
+            <li><strong>Teammate C</strong> – AI Chatbot & Notifications</li>
+        </ul>
+        <p class="note">
+            Only those directly involved in creating this website qualify for the extra credit.
+        </p>
+    </section>
+
+</main>
+
+<footer class="site-footer">
+    <div class="container">
+        <p>SpendWise &copy; 2025 • Built for the course project</p>
+        <p><a href="#intro">Back to top ↑</a></p>
+    </div>
+</footer>
+</body>
+</html>
