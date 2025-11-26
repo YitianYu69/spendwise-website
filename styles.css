@@ -146,6 +146,12 @@ ul {
     border: none;
 }
 
+.profile-image {
+    width: 250px;
+    height: auto;
+    border-radius: 10px; /* optional */
+}
+
 /* Notes */
 .note {
     font-size: 0.9rem;
